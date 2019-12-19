@@ -188,14 +188,9 @@ var PolyTools = new function() {
       arguments.length == 1 ? arguments[0] : Array.apply(null, arguments);
     return plist.reduce(
       function(acc, v) {
-        /*       if (v == undefined || acc == undefined){
-      console.log("ERRR");
-      console.log(plist)
-      return [0,0]
-    } */
         return [v[0] / plist.length + acc[0], v[1] / plist.length + acc[1]];
       },
-      [0, 0],
+      [0, 0]
     );
   };
   this.triangulate = function(plist, args) {
@@ -209,7 +204,7 @@ var PolyTools = new function() {
       var m = den == 0 ? Infinity : (pt1[1] - pt0[1]) / den;
       var k = pt0[1] - m * pt0[0];
       return [m, k];
-    }
+    };
     function intersect(ln0, ln1) {
       var le0 = lineExpr(...ln0);
       var le1 = lineExpr(...ln1);
